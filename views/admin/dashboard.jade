@@ -1,0 +1,290 @@
+extends layout
+
+block content
+  // Build page from here:
+  .row-fluid
+    .span8
+      .centerContent
+        ul.bigBtnIcon
+          li
+            a.tipB(href='#', title='I`m with gradient')
+              span.icon.icomoon-icon-users
+              span.txt 員工
+              span.notification 5
+          li
+            a(href='#')
+              span.icon.icomoon-icon-support
+              span.txt 銷售
+              span.notification.blue 12
+          li
+            a.pattern.tipB(href='#', title='I`m with pattern')
+              span.icon.icomoon-icon-comments-2
+              span.txt 產品
+              span.notification.green 23
+          li
+            a(href='#')
+              span.icon.icomoon-icon-basket
+              span.txt 報表
+              span.notification +5
+          li
+            a(href='#')
+              span.icon.icomoon-icon-history
+              span.txt 報表
+          li
+            a(href='#')
+              span.icon.icomoon-icon-meter-fast
+              span.txt 報表
+    // End .span8
+    .span4
+      .centerContent
+        .circle-stats(dir='ltr')
+          .circular-item.tipB(title='Site overload')
+            span.icon.icomoon-icon-fire
+            input.redCircle(type='text', value='62')
+          .circular-item.tipB(title='Site average load time')
+            span.icon.icomoon-icon-busy
+            input.blueCircle(type='text', value='12')
+          .circular-item.tipB(title='Target complete')
+            span.icon.icomoon-icon-target-2
+            input.greenCircle(type='text', value='94')
+    // End .span4
+  // End .row-fluid
+  .row-fluid
+    .span8
+      .box.chart.gradient
+        .title
+          h4
+            span.icon16.icomoon-icon-bars
+            span 銷售圖表
+          a.minimize(href='#') Minimize
+        .content(style='padding-bottom: 0;')
+          .visitors-chart(style='height: 230px; width: 100%; margin-top: 15px; margin-bottom: 15px;')
+          ul.chartShortcuts
+            li
+              a(href='#')
+                span.head 總銷售客數
+                span.number 509
+            li
+              a(href='#')
+                span.head 不重複客戶
+                span.number 309
+            li
+              a(href='#')
+                span.head 新客戶
+                span.number 109
+            li
+              a(href='#')
+                span.head Impressions
+                span.number 325
+      // End .box
+    // End .span8
+    .span4
+      .sparkStats
+        h4
+          | 389 people visited this site
+          a.icon.tip(href='#', title='Configure')
+            span.icon16.icomoon-icon-cog-2
+        ul.unstyled
+          li
+            span.sparkLine1
+            | Visits:
+            span.number 509
+          li
+            span.sparkLine2
+            | Unique Visitors:
+            span.number 389
+          li
+            span.sparkLine3
+            | Pageviews:
+            span.number 731
+          li
+            span.sparkLine4
+            | Pages / Visit:
+            span.number 1.44
+          li
+            span.sparkLine5
+            | Avg. Visit Duration:
+            span.number 00:01:21
+          li
+            span.sparkLine6
+            | Bounce Rate:
+            span.number 68.37%
+          li
+            span.sparkLine7
+            | % New Visits:
+            span.number 76.23%
+        .right(style='padding: 15px 0;')
+          a.btn.btn-info(href='charts.html')
+            | View full statistic
+            span.icon16.icomoon-icon-arrow-right.white
+      // End .sparkStats
+    // End .span4
+  // End .row-fluid
+  .row-fluid
+    .span4
+      .box.gradient
+        .title
+          h4
+            span.icon16.icomoon-icon-pie
+            span Visitors overview
+          a.minimize(href='#') Minimize
+        .content
+          .pieStats(style='height: 240px; width: 100%;')
+      // End .box
+    // End .span4
+    .span4
+      .box.gradient
+        .title
+          h4
+            span.icon16.icomoon-icon-thumbs-up
+            span
+              | Vital Stats
+              span.label.label-success
+                span.icomoon-icon-arrow-up-2.white
+                | 1268
+          a.minimize(href='#') Minimize
+        .content
+          .vital-stats(style='padding-bottom: 23px;')
+            ul.unstyled
+              li
+                span.icon24.icomoon-icon-arrow-up-2.green
+                | 81% Clicks
+                span.pull-right.strong 567
+                .progress.progress-striped
+                  .bar(style='width: 81%;')
+              li
+                span.icon24.icomoon-icon-arrow-up-2.green
+                | 72% Uniquie Clicks
+                span.pull-right.strong 507
+                .progress.progress-success.progress-striped
+                  .bar(style='width: 72%;')
+              li
+                span.icon24.icomoon-icon-arrow-down-2.red
+                | 53% Impressions
+                span.pull-right.strong 457
+                .progress.progress-warning.progress-striped
+                  .bar(style='width: 53%;')
+              li
+                span.icon24.icomoon-icon-arrow-up-2.green
+                | 3% Online Users
+                span.pull-right.strong 8
+                .progress.progress-danger.progress-striped
+                  .bar(style='width: 3%;')
+      // End .box
+    // End .span4
+    .span4
+      .reminder
+        h4
+          | Things you need to do
+          a.icon.tip(href='#', title='Configure')
+            span.icon16.icomoon-icon-cog-2
+        ul
+          li.clearfix
+            .icon
+              span.icon32.icomoon-icon-basket.gray
+            span.number 7
+            span.txt Pending Orders
+            a.btn.btn-warning go
+          li.clearfix
+            .icon
+              span.icon32.icomoon-icon-support.red
+            span.number 3
+            span.txt Support Tickets 
+            a.btn.btn-warning go
+          li.clearfix
+            .icon
+              span.icon32.icomoon-icon-new.green
+            span.number 5
+            span.txt New Invoices 
+            a.btn.btn-warning go
+          li.clearfix
+            .icon
+              span.icon32.icomoon-icon-comments-4.blue
+            span.number 13
+            span.txt Review Comments
+            a.btn.btn-warning go
+          li.clearfix
+            .icon
+              span.icon32.icomoon-icon-cog.dark
+            span.number 2
+            span.txt Settings to Change 
+            a.btn.btn-warning go
+      // End .reminder
+    // End .span4
+  // End .row-fluid
+  #myModal1.modal.fade.hide
+    .modal-header
+      button.close(type='button', data-dismiss='modal')
+        span.icon12.minia-icon-close
+      h3 Chat layout
+    .modal-body
+      ul.messages
+        li.user.clearfix
+          a.avatar(href='#')
+            img(src='/libs/supr/images/avatar2.jpeg', alt='')
+          .message
+            .head.clearfix
+              span.name
+                strong Lazar
+                | says:
+              span.time 25 seconds ago
+            p
+              | Time to go i call you tomorrow.
+        li.admin.clearfix
+          a.avatar(href='#')
+            img(src='/libs/supr/images/avatar3.jpeg', alt='')
+          .message
+            .head.clearfix
+              span.name
+                strong Sugge
+                | says:
+              span.time just now
+            p
+              | OK, have a nice day.
+        li.sendMsg
+          form.form-horizontal(action='#')
+            textarea#textarea1.elastic(rows='1', placeholder='Enter your message ...', style='width: 98%;')
+            button.btn.btn-info.marginT10(type='submit') Send message
+    .modal-footer
+      a.btn(href='#', data-dismiss='modal') Close
+        // End contentwrapper
+      // End #content
+    // End #wrapper
+block scripts
+  // Charts plugins
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.grow.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.pie.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.resize.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.tooltip_0.4.4.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.orderBars.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/sparkline/jquery.sparkline.min.js')
+  // Sparkline plugin
+  script(type='text/javascript', src='/libs/supr/plugins/charts/knob/jquery.knob.js')
+  // Circular sliders and stats
+  // Misc plugins
+  script(type='text/javascript', src='/libs/supr/plugins/misc/fullcalendar/fullcalendar.min.js')
+  // Calendar plugin
+  script(type='text/javascript', src='/libs/supr/plugins/misc/qtip/jquery.qtip.min.js')
+  // Custom tooltip plugin
+  script(type='text/javascript', src='/libs/supr/plugins/misc/totop/jquery.ui.totop.min.js')
+  // Back to top plugin
+  // Search plugin
+  script(type='text/javascript', src='/libs/supr/plugins/misc/search/tipuesearch_set.js')
+  script(type='text/javascript', src='/libs/supr/plugins/misc/search/tipuesearch_data.js')
+  // JSON for searched results
+  script(type='text/javascript', src='/libs/supr/plugins/misc/search/tipuesearch.js')
+  // Form plugins
+  script(type='text/javascript', src='/libs/supr/plugins/forms/watermark/jquery.watermark.min.js')
+  script(type='text/javascript', src='/libs/supr/plugins/forms/uniform/jquery.uniform.min.js')
+  // Fix plugins
+  script(type='text/javascript', src='/libs/supr/plugins/fix/ios-fix/ios-orientationchange-fix.js')
+  // Important Place before main.js
+  script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js')
+  script(type='text/javascript', src='/libs/supr/plugins/fix/touch-punch/jquery.ui.touch-punch.min.js')
+  // Unable touch for JQueryUI
+  // Init plugins
+  script(type='text/javascript', src='/libs/supr/js/main.js')
+  // Core js functions
+  script(type='text/javascript', src='/libs/supr/js/dashboard.js')
+  // Init plugins only for page

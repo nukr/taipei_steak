@@ -1,0 +1,155 @@
+doctype 5
+html(ng-app="Report")
+  head
+    title
+    link(rel='stylesheet', href='/components/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/components/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/components/elusive-iconfont/css/elusive-webfont.css')
+    link(rel='stylesheet', href='/components/iphone-style-checkboxes/style.css')
+    link(rel='stylesheet', href='components/jquery-ui-datepicker/css/ui-lightness/jquery-ui-1.10.3.custom.min.css')
+    link(rel='stylesheet', href='/stylesheets/screen.css')
+    link(href="/stylesheets/print.css", media="print",  rel="stylesheet", type="text/css")
+    script(src='/components/jquery/jquery.min.js', type='text/javascript')
+    // script(src='/libs/jquery.mobile-1.2.0.min.js', type='text/javascript')
+    script(src='/components/jquery-ui-datepicker/js/jquery-ui-1.10.3.custom.min.js', type='text/javascript')
+    script(src='/components/iphone-style-checkboxes/jquery/iphone-style-checkboxes.js', type='text/javascript')
+    script(src='/components/holderjs/holder.js', type='text/javascript')
+    script(src='/components/bootstrap/js/bootstrap.min.js', type='text/javascript')
+    script(src='/components/angular/angular.min.js', type='text/javascript')
+    script(src='/javascripts/spa.js', type='text/javascript')
+  body
+    .container(ng-controller="ReportListCtrl")
+      .row
+        form.form-search.print-ignore
+          input#datepicker(type="text", ng-model="queryDate", value="{{queryDate}}")
+          | &nbsp;&nbsp;
+          select#shift(name="shift")
+            option(value="morning") 早班
+            option(value="evening") 晚班
+          | &nbsp;&nbsp;
+          button.btn.btn-primary(ng-click="query()") Search
+        ul.nav.nav-tabs.print-ignore
+          li
+            a(href="#bills", data-toggle="tab") 帳單報表
+          li
+            a(href="#steaks-sum", data-toggle="tab") 銷售總計
+        .tab-content
+          .tab-pane#steaks-sum
+            table.table.lead.table-bordered.well
+              tr
+                th 品名
+                th 單價
+                th 數量
+                th 金額
+              tr(ng-repeat="dish in reports.dishCountTable")
+                td {{dish._id}}
+                td {{dish.value.price}}
+                td {{dish.value.qty}}
+                td {{dish.value.total}}
+              tr.info
+                td 合計
+                td
+                td
+                td {{reports.c.info.allRawPrice}}
+            #chart
+          .tab-pane#bills
+            table.table.table-bordered.table-striped.lead.table-report
+              tr
+                th 單號
+                th 金額
+                th 服務費
+                th 折扣
+                th 總金額
+                th 早／晚
+                th 製單人
+                th 刷卡
+              tr(ng-repeat="c in reports.c.bills")
+                td
+                  a(href="#", data-id="{{c._id}}", ng-click="m2e()") {{c.billNo}}
+                td {{c.rawPrice}}
+                td {{c.serviceTip}}
+                td {{c.discountTip}}
+                td {{c.donePrice}}
+                th {{c.shift}}
+                th {{c.creator}}
+                td(ng-show="c.credit")
+                  span.label.label-success 刷卡
+                td(ng-hide="c.credit")
+              tr.info
+                td 合計
+                td {{reports.c.info.allRawPrice}}
+                td {{reports.c.info.allServiceTip}}
+                td {{reports.c.info.allDiscountTip}}
+                td {{reports.c.info.allDonePrice}}
+                td
+                td
+                td
+            table.table.lead.table-bordered.well.table-voucher
+              caption 傳票
+              tr
+                th 會計課目
+                th 摘要
+                th 金額
+                th 會計課目
+                th 摘要
+                th 金額
+              tr
+                td 營業額
+                td
+                td ${{reports.c.info.totalTurnOver}}
+                td 服務費
+                td
+                td ${{reports.c.info.allServiceTip}}
+              tr
+                td 刷卡
+                td
+                td ${{reports.c.info.allCreditPrice - reports.c.info.allCreditServiceTip}}
+                td 刷卡服務費
+                td
+                td ${{reports.c.info.allCreditServiceTip}}
+              tr
+                td
+                  | &nbsp;
+                td
+                td
+                td
+                td
+                td
+              tr
+                td
+                  | &nbsp;
+                td
+                td
+                td
+                td
+                td
+              tr
+                td
+                  | &nbsp;
+                td
+                td
+                td
+                td
+                td
+              tr
+                td
+                  | &nbsp;
+                td
+                td
+                td
+                td
+                td
+              tr.info
+                td 合計
+                td
+                td ${{reports.c.info.totalTurnOver - (reports.c.info.allCreditPrice - reports.c.info.allCreditServiceTip)}}
+                td 合計
+                td
+                td ${{reports.c.info.allServiceTip - reports.c.info.allCreditServiceTip}}
+              tr.info
+                td 現金總額
+                td
+                td ${{reports.c.info.cash}}
+                td
+                td
+                td

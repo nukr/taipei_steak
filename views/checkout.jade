@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  .container
+    .row
+      h1= title
+      h3= bills.date
+      each bill, i in bills
+        .row.well
+          table.table.checkout-table.lead
+            caption #{bill.billNo}
+            tr
+              th #
+              th 餐點
+              th 數量
+              th 單價
+              th 總價
+            each dish, j in bill.dishes
+              tr
+                td= j+1
+                td= dish.name
+                td= dish.quantity
+                td= dish.price
+                td= dish.price * dish.quantity
+            tr.info
+              td
+              td
+              td
+              td
+                span.label.label-warning 服務費
+              td= bill.serviceTip
+            tr.info
+              td
+              td
+              td
+              td 
+                span.label.label-warning 總金額
+              td= bill.donePrice
+          .row
+            .span3
+              a.btn(href="/bill/delete/#{bill._id}") 刪除
+            .span3
+            .span3
+              if bill.credit == true
+                span.label.label-success 刷卡
+            .span3
+              if bill.discount == true
+                span.label.label-success 折扣

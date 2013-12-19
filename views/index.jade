@@ -1,0 +1,121 @@
+extends layout
+
+block content
+  .container.main-content.lead(ng-controller="OrderCtrl")
+    .row
+      .span8
+        ul.nav.nav-tabs
+          li
+            a(href="#normal", data-toggle="tab") 一般套餐
+          li
+            a(href="#event", data-toggle="tab") 活動商品
+          li
+            a(href="#christmas", data-toggle="tab") 聖誕節專區
+          li
+            a(href="#sevenFive", data-toggle="tab") 七五折專區
+          li
+            a(href="#single", data-toggle="tab") 單點商品
+        .tab-content
+          .tab-pane#normal
+            ul.thumbnails
+              each meal, i in meals
+                if meal.category == 'normal'
+                  a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
+                    li.span2
+                      .thumbnail.well
+                        //img(data-src="holder.js/300x200")
+                        .caption
+                          h3.meal-name= meal.name
+                          p $
+                            span.price #{meal.price}
+                          input.quantity(type="hidden", value="1")
+          .tab-pane#event
+            ul.thumbnails
+              each meal, i in meals
+                if meal.category == 'event'
+                  a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
+                    li.span2
+                      .thumbnail.well
+                        //img(data-src="holder.js/300x200")
+                        .caption
+                          h3.meal-name= meal.name
+                          p $
+                            span.price #{meal.price}
+                          input.quantity(type="hidden", value="1")
+          .tab-pane#christmas
+            ul.thumbnails
+              each meal, i in meals
+                if meal.category == 'christmas'
+                  a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
+                    li.span2
+                      .thumbnail.well
+                        //img(data-src="holder.js/300x200")
+                        .caption
+                          h3.meal-name= meal.name
+                          p $
+                            span.price #{meal.price}
+                          input.quantity(type="hidden", value="1")
+          .tab-pane#sevenFive
+            ul.thumbnails
+              each meal, i in meals
+                if meal.category == 'sevenFive'
+                  a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
+                    li.span2
+                      .thumbnail.well
+                        //img(data-src="holder.js/300x200")
+                        .caption
+                          h3.meal-name= meal.name
+                          p $
+                            span.price #{meal.price}
+                          input.quantity(type="hidden", value="1")
+          .tab-pane#single
+            ul.thumbnails
+              each meal, i in meals
+                if meal.category == 'single'
+                  a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
+                    li.span2
+                      .thumbnail.well
+                        //img(data-src="holder.js/300x200")
+                        .caption
+                          h3.meal-name= meal.name
+                          p $
+                            span.price #{meal.price}
+                          input.quantity(type="hidden", value="1")
+      .span4
+        .affix.well
+          table.table
+            input#billno(type="text", name="no", placeholder="帳單編號")
+            tr
+              th 餐點
+              th 金額
+              th 數量
+              th 移除
+            tr.credit
+              td 刷卡
+              td
+                input.checkboxCredit(type='checkbox', name='credit')
+              td
+              td
+            tr
+              td 折扣
+              td
+                input.checkboxDiscount(type='checkbox', name='discount')
+              td
+              td
+            tr.info
+              td 服務費
+              td.bill-service-tip
+              td
+              td
+            tr.info
+              td 總價
+              td.bill-total-price
+              td.bill-total-quantity
+              td: a(href='#', ng-click="billGen()").btn.btn-primary.bill-gen 產生
+
+  #myModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    .modal-header
+      button.close(data-dismiss="modal", aria-hidden="true") x
+      h3#myModalLabel 點餐結果
+    .modal-footer
+      button.btn(data-dismiss="modal", aria-hidden="true") Close

@@ -1,0 +1,171 @@
+extends layout
+block content
+          // Build page from here: Usual with <div class="row-fluid"></div>
+          .row-fluid
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Simple chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .simple-chart(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Lines chart without points
+                  a.minimize(href='#') Minimize
+                .content
+                  .lines-chart(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+          // End .row-fluid
+          .row-fluid
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Ordered Bars chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .order-bars-chart(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Donut chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .simple-donut(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+          // End .row-fluid
+          .row-fluid
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Stacked Bars chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .stacked-bars-chart(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Pie chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .simple-pie(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+          // End .row-fluid
+          .row-fluid
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Horizontal Bars chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .horizontal-bars-chart(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+            .span6
+              .box.chart
+                .title
+                  h4
+                    span.icon16.icomoon-icon-bars
+                    span Auto updating chart
+                  a.minimize(href='#') Minimize
+                .content
+                  .auto-update-chart(style='height: 230px; width: 100%;')
+              // End .box
+            // End .span6
+          // End .row-fluid
+          // Page end here
+          #myModal1.modal.fade.hide
+            .modal-header
+              button.close(type='button', data-dismiss='modal')
+                span.icon12.minia-icon-close
+              h3 Chat layout
+            .modal-body
+              ul.messages
+                li.user.clearfix
+                  a.avatar(href='#')
+                    img(src='images/avatar2.jpeg', alt='')
+                  .message
+                    .head.clearfix
+                      span.name
+                        strong Lazar
+                        | says:
+                      span.time 25 seconds ago
+                    p
+                      | Time to go i call you tomorrow.
+                li.admin.clearfix
+                  a.avatar(href='#')
+                    img(src='images/avatar3.jpeg', alt='')
+                  .message
+                    .head.clearfix
+                      span.name
+                        strong Sugge
+                        | says:
+                      span.time just now
+                    p
+                      | OK, have a nice day.
+                li.sendMsg
+                  form.form-horizontal(action='#')
+                    textarea#textarea.elastic(rows='1', placeholder='Enter your message ...', style='width: 98%;')
+                    button.btn.btn-info.marginT10(type='submit') Send message
+            .modal-footer
+              a.btn(href='#', data-dismiss='modal') Close
+        // End contentwrapper
+      // End #content
+    // End #wrapper
+block scripts
+  // Charts plugins
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.grow.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.pie.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.resize.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.tooltip_0.4.4.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/flot/jquery.flot.orderBars.js')
+  script(type='text/javascript', src='/libs/supr/plugins/charts/sparkline/jquery.sparkline.min.js')
+  // Sparkline plugin
+  // Misc plugins
+  script(type='text/javascript', src='/libs/supr/plugins/misc/qtip/jquery.qtip.min.js')
+  // Custom tooltip plugin
+  script(type='text/javascript', src='/libs/supr/plugins/misc/totop/jquery.ui.totop.min.js')
+  // Search plugin
+  script(type='text/javascript', src='/libs/supr/plugins/misc/search/tipuesearch_set.js')
+  script(type='text/javascript', src='/libs/supr/plugins/misc/search/tipuesearch_data.js')
+  // JSON for searched results
+  script(type='text/javascript', src='/libs/supr/plugins/misc/search/tipuesearch.js')
+  // Form plugins
+  script(type='text/javascript', src='/libs/supr/plugins/forms/watermark/jquery.watermark.min.js')
+  script(type='text/javascript', src='/libs/supr/plugins/forms/uniform/jquery.uniform.min.js')
+  // Fix plugins
+  script(type='text/javascript', src='/libs/supr/plugins/fix/ios-fix/ios-orientationchange-fix.js')
+  // Important Place before main.js
+  script(type='text/javascript', src='/libs/supr/js/jquery-ui.min.js')
+  script(type='text/javascript', src='/libs/supr/plugins/fix/touch-punch/jquery.ui.touch-punch.min.js')
+  // Unable touch for JQueryUI
+  // Init plugins
+  script(type='text/javascript', src='/libs/supr/js/main.js')
+  // Core js functions
+  script(type='text/javascript', src='/libs/supr/js/charts.js')
+  // Init plugins only for page

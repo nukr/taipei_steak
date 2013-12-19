@@ -1,0 +1,95 @@
+doctype 5
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title 台北牛排 登入
+    meta(name='application-name', content='Supr admin template')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='/libs/supr/css/bootstrap/bootstrap.css', rel='stylesheet')
+    link(href='/libs/supr/css/bootstrap/bootstrap-responsive.css', rel='stylesheet')
+    link(href='/libs/supr/css/supr-theme/jquery.ui.supr.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/css/icons.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/plugins/forms/uniform/uniform.default.css', type='text/css', rel='stylesheet')
+    //Main stylesheets 
+    link(href='/libs/supr/css/main.css', rel='stylesheet', type='text/css')
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    link(rel='shortcut icon', href='images/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/libs/supr/images/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/libs/supr/images/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/libs/supr/images/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='/libs/supr/images/apple-touch-icon-57-precomposed.png')
+  body.loginPage
+    .container-fluid
+      #header
+        .row-fluid
+          .navbar
+            .navbar-inner
+              .container
+                a.brand(href='/')
+                  | 台北牛排點餐系統
+                  span.slogan 請先登入
+    .container-fluid
+      .loginContainer
+        form#loginForm.form-horizontal(action='/auth', method="post")
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                label.form-label.span12(for='username')
+                  | 帳號:
+                  span.icon16.icomoon-icon-user-3.right.gray.marginR10
+                input#username.span12(type='text', name='username', value='')
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                label.form-label.span12(for='password')
+                  | 密碼:
+                  span.icon16.icomoon-icon-locked.right.gray.marginR10
+                input#password.span12(type='password', name='password', value='')
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                label.form-label.span12(for='shift')
+                  | 班別:
+                  span.icon16.icomoon-icon-locked.right.gray.marginR10
+                select#shift(name="shift")
+                  option(value="morning") 早班
+                  option(value="evening") 晚班
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                .form-actions
+                  .span12.controls
+                    button#loginBtn.btn.btn-info.right(type='submit')
+                      span.icon16.icomoon-icon-enter.white
+                      | 登入
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    script(type='text/javascript', src='/libs/supr/js/bootstrap/bootstrap.js')
+    script(type='text/javascript', src='/libs/supr/plugins/forms/validate/jquery.validate.min.js')
+    script(type='text/javascript', src='/libs/supr/plugins/forms/uniform/jquery.uniform.min.js')
+    script
+      $(document).ready(function() {
+          $("input, textarea, select").not('.nostyle').uniform();
+          $("#loginForm").validate({
+            rules: {
+              username: {
+                required: true,
+                minlength: 4
+              },
+              password: {
+                required: true,
+                minlength: 6
+              }  
+            },
+            messages: {
+              username: {
+                required: "Fill me please",
+                minlength: "My name is bigger"
+              },
+              password: {
+                required: "Please provide a password",
+                minlength: "My password is more that 6 chars"
+              }
+            }   
+          });
+      });

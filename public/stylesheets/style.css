@@ -1,0 +1,26 @@
+body {
+  margin-top: 60px;
+}
+
+.invalid {
+}
+
+@media print {
+  .navbar {
+    display: none;
+  }
+  .print-ignore {
+    display: none;
+  }
+
+  table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+}

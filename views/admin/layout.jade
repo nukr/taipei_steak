@@ -1,0 +1,222 @@
+doctype 5
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title 台北牛排admin
+    meta(name='author', content='SuggeElson')
+    meta(name='description', content='Supr admin template - new premium responsive admin template. This template is designed to help you build the site administration without losing valuable time.Template contains all the important functions which must have one backend system.Build on great twitter boostrap framework')
+    meta(name='keywords', content='admin, admin template, admin theme, responsive, responsive admin, responsive admin template, responsive theme, themeforest, 960 grid system, grid, grid theme, liquid, masonry, jquery, administration, administration template, administration theme, mobile, touch , responsive layout, boostrap, twitter boostrap')
+    meta(name='application-name', content='Supr admin template')
+    // Mobile Specific Metas
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // Headings
+    // <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+    // Text
+    // <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
+    //if lt IE 9
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans:400', rel='stylesheet', type='text/css')
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans:700', rel='stylesheet', type='text/css')
+      link(href='http://fonts.googleapis.com/css?family=Droid+Sans:400', rel='stylesheet', type='text/css')
+      link(href='http://fonts.googleapis.com/css?family=Droid+Sans:700', rel='stylesheet', type='text/css')
+    // Core stylesheets do not remove
+    link(href='/libs/supr/css/bootstrap/bootstrap.min.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/css/bootstrap/bootstrap-responsive.min.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/css/supr-theme/jquery.ui.supr.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/css/icons.css', rel='stylesheet', type='text/css')
+    // Plugins stylesheets
+    link(href='/libs/supr/plugins/misc/qtip/jquery.qtip.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/plugins/misc/fullcalendar/fullcalendar.css', rel='stylesheet', type='text/css')
+    link(href='/libs/supr/plugins/misc/search/tipuesearch.css', type='text/css', rel='stylesheet')
+    link(href='/libs/supr/plugins/forms/uniform/uniform.default.css', type='text/css', rel='stylesheet')
+    // Main stylesheets
+    link(href='/libs/supr/css/main.css', rel='stylesheet', type='text/css')
+    // Custom stylesheets ( Put your own changes here )
+    link(href='/libs/supr/css/custom.css', rel='stylesheet', type='text/css')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    // Le fav and touch icons
+    link(rel='shortcut icon', href='/libs/supr/images/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/libs/supr/images/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/libs/supr/images/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/libs/supr/images/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='/libs/supr/images/apple-touch-icon-57-precomposed.png')
+    script(type='text/javascript')
+      //adding load class to body and hide page
+      document.documentElement.className += 'loadstate';
+  body
+    // loading animation
+    #qLoverlay
+    #qLbar
+    #header
+      .navbar
+        .navbar-inner
+          .container-fluid
+            a.brand(href='/admin/dashboard')
+              | 台北牛排
+              span.slogan admin
+            .nav-no-collapse
+              ul.nav
+                li.active
+                  a(href='/admin/dashboard')
+                    span.icon16.icomoon-icon-screen-2
+                    | Dashboard
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.icon16.icomoon-icon-cog
+                    | Settings
+                    b.caret
+                  ul.dropdown-menu
+                    li.menu
+                      ul
+                        li
+                          a(href='#')
+                            span.icon16.icomoon-icon-equalizer
+                            | Site config
+                        li
+                          a(href='#')
+                            span.icon16.icomoon-icon-wrench
+                            | Plugins
+                        li
+                          a(href='#')
+                            span.icon16.icomoon-icon-picture-2
+                            | Themes
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.icon16.icomoon-icon-mail-3
+                    | Messages
+              ul.nav.pull-right.usernav
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.icon16.icomoon-icon-bell-2
+                li.dropdown
+                  a.dropdown-toggle.avatar(href='#', data-toggle='dropdown')
+                    img.image(src='/libs/supr/images/avatar.jpg', alt='')
+                    span.txt admin@supr.com
+                    b.caret
+                li
+                  a(href='index.html')
+                    span.icon16.icomoon-icon-exit
+                    | Logout
+            // /.nav-collapse
+        // /navbar-inner
+      // /navbar
+    // End #header
+    #wrapper
+      // Responsive navigation button
+      .resBtn
+        a(href='#')
+          span.icon16.minia-icon-list-3
+      // Left Sidebar collapse button
+      .collapseBtn.leftbar
+        a.tipR(href='#', title='Hide Left Sidebar')
+          span.icon12.minia-icon-layout
+      // Sidebar background
+      #sidebarbg
+      // Sidebar content
+      #sidebar
+        .shortcuts
+          ul
+            li
+              a.tip(href='support.html', title='Support section')
+                span.icon24.icomoon-icon-support
+            li
+              a.tip(href='#', title='Database backup')
+                span.icon24.icomoon-icon-database
+            li
+              a.tip(href='charts.html', title='Sales statistics')
+                span.icon24.icomoon-icon-pie-2
+            li
+              a.tip(href='#', title='Write post')
+                span.icon24.icomoon-icon-pencil
+        // End search
+        .sidenav
+          .sidebar-widget(style='margin: -1px 0 0 0;')
+            h5.title(style='margin-bottom: 0;') 導覽
+          // End .sidenav-widget
+          .mainnav
+            ul
+              li
+                a(href='/admin/charts')
+                  span.icon16.icomoon-icon-stats-up
+                  | 圖表
+              li
+                a(href='/admin/employee')
+                  span.icon16.icomoon-icon-user
+                  | 員工
+              li
+                a(href='/admin/meal')
+                  span.icon16.icomoon-icon-food
+                  | 餐點
+              li
+                a(href='/admin/expense')
+                  span.icon16.icomoon-icon-coin
+                  | 費用
+              li
+                a(href='/reports')
+                  span.icon16.icomoon-icon-list-view-2
+                  | 報表
+                  span.notification.red sub2
+                ul.sub
+                  li
+                    a(href='/admin/report/now')
+                      span.icon16.icomoon-icon-file
+                      | 日報表
+                  li
+                    a(href='forms-validation.html')
+                      span.icon16.icomoon-icon-file
+                      | 月報表
+                  li
+                    a(href='#')
+                      span.icon16.icomoon-icon-file
+                      | Sub Level 2
+                      span.notification.red new
+                    ul.sub
+                      li
+                        a(href='#')
+                          span.icon16.icomoon-icon-arrow-right-2
+                          | Item
+                      li
+                        a(href='#')
+                          span.icon16.icomoon-icon-arrow-right-2
+                          | Item
+                      li
+                        a(href='#')
+                          span.icon16.icomoon-icon-arrow-right-2
+                          | Item
+                      li
+                        a(href='#')
+                          span.icon16.icomoon-icon-arrow-right-2
+                          | Item
+        // End sidenav
+      // End #sidebar
+      // Body content
+      #content.clearfix
+        .contentwrapper
+          // Content wrapper
+          .heading
+            h3= title
+            .resBtnSearch
+              a(href='#')
+                span.icon16.icomoon-icon-search-3
+            .search
+              form#searchform(action='search.html')
+                input#tipue_search_input.top-search(type='text', placeholder='Search here ...')
+                input#tipue_search_button.search-btn(type='submit', value='')
+            // End search
+            ul.breadcrumb
+              li You are here:
+              li
+                a.tip(href='#', title='back to dashboard')
+                  span.icon16.icomoon-icon-screen-2
+                span.divider
+                  span.icon16.icomoon-icon-arrow-right-2
+              li.active= title
+          // End .heading
+          block content
+    // Important plugins put in all pages
+    script(type='text/javascript', src='/libs/supr/js/jquery.min.js')
+    script(type='text/javascript', src='/libs/supr/js/bootstrap/bootstrap.js')
+    script(type='text/javascript', src='/libs/supr/js/jquery.cookie.js')
+    script(type='text/javascript', src='/libs/supr/js/jquery.mousewheel.js')
+    block scripts

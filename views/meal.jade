@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  .container
+    .row
+      .hero-unit
+        h2 抱歉！這是系統管理員功能
+      ul.nav.nav-tabs
+        li
+          a(href="#add-meal", data-toggle="tab") 新增套餐
+        li
+          a(href="#meal-list", data-toggle="tab") 套餐列表
+      .tab-content
+        .tab-pane#add-meal
+          form.form-horizontal(action='/meal/add', method='POST')
+            fieldset
+              legend
+                新增套餐
+              .control-group
+                .control-label
+                  label 套餐名稱
+                .controls
+                  input(type='text', name='setname')
+              .control-group
+                .control-label
+                  label 價格
+                .controls
+                  input(type='text', name='price')
+              .control-group
+                .control-label
+                  label 順序
+                .controls
+                  input(type='text', name='order')
+              .control-group
+                .control-label: label 分類
+                .controls
+                  select(name="category")
+                    option(value="normal") 一般套餐
+                    option(value="event") 活動商品
+                    option(value="christmas") 聖誕節專區
+                    option(value="sevenFive") 七五折專區
+                    option(value="single") 單點商品
+              .control-group
+                .control-label
+                  label 備註
+                .controls
+                  textarea(rows='3', name='remark')
+              .form-actions
+                button.btn.btn-primary 送出
+                | 
+                button.btn 取消
+
+        .tab-pane#meal-list
+          table.table.lead
+            tr
+              th 順序
+              th 套餐名稱
+              th 價格
+              th 備註
+              th 操作
+            each meal in meals
+              tr
+                td= meal.order
+                td= meal.name
+                td= meal.price
+                td= meal.remark
+                td
+                  a(href="/meal/order/up/#{meal.order}")
+                    i.icomoon-icon-arrow-up-8
+                  a(href="/meal/order/down/#{meal.order}")
+                    i.icomoon-icon-arrow-down-8
+                  a(href="/meal/order/delete/#{meal._id}")
+                    i.icomoon-icon-remove-6
+                  a(href="/meal/order/edit/#{meal.order}")
+                    i.icomoon-icon-pencil-5
+      .hero-unit
+        h2 抱歉！這是系統管理員功能

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    .row
+      form.form-horizontal(action="/employee/add", method="POST")
+        .control-group
+          label.control-label Username
+          .controls
+            input(type="text", name="username")
+        .control-group
+          label.control-label Password
+          .controls
+            input(type="password", name="password")
+        .control-group
+          label.control-label Realname
+          .controls
+            input(type="text", name="realname")
+        .control-group
+          label.control-label Phone
+          .controls
+            input(type="text", name="phone")
+        .control-group
+          .controls
+            button.btn.btn-primary(type="submit") 送出

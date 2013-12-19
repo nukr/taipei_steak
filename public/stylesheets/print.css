@@ -1,0 +1,31 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/* line 7, ../sass/print.sass */
+.navbar {
+  display: none;
+}
+
+/* line 9, ../sass/print.sass */
+.print-ignore {
+  display: none;
+}
+
+/* line 11, ../sass/print.sass */
+.table, table th, table td {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 0px;
+}
+
+/* line 16, ../sass/print.sass */
+tr.info {
+  color: red;
+}
+
+/* line 18, ../sass/print.sass */
+.table-voucher {
+  page-break-before: always;
+}

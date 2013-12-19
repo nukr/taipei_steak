@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container-fluid
+    .row-fluid
+      ul
+        li #{result.name}
+        li #{result.price}
+        li #{result.remark}
+      a.btn.btn-primary.btn-large(href='/meal/add') 再新增一個
