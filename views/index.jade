@@ -8,7 +8,7 @@ block content
           li
             a(href="#normal", data-toggle="tab") 一般套餐
           li
-            a(href="#event", data-toggle="tab") 活動商品
+            a(href="#newYear", data-toggle="tab") 新春菜單
           li
             a(href="#christmas", data-toggle="tab") 聖誕節專區
           li
@@ -23,20 +23,18 @@ block content
                   a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
                     li.span2
                       .thumbnail.well
-                        //img(data-src="holder.js/300x200")
                         .caption
                           h3.meal-name= meal.name
                           p $
                             span.price #{meal.price}
                           input.quantity(type="hidden", value="1")
-          .tab-pane#event
+          .tab-pane#newYear
             ul.thumbnails
               each meal, i in meals
-                if meal.category == 'event'
+                if meal.category == 'newYear'
                   a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
                     li.span2
                       .thumbnail.well
-                        //img(data-src="holder.js/300x200")
                         .caption
                           h3.meal-name= meal.name
                           p $
@@ -49,7 +47,6 @@ block content
                   a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
                     li.span2
                       .thumbnail.well
-                        //img(data-src="holder.js/300x200")
                         .caption
                           h3.meal-name= meal.name
                           p $
@@ -62,7 +59,6 @@ block content
                   a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
                     li.span2
                       .thumbnail.well
-                        //img(data-src="holder.js/300x200")
                         .caption
                           h3.meal-name= meal.name
                           p $
@@ -75,7 +71,6 @@ block content
                   a(href='/checkout/mealid/#{meal._id}', ng-click="selectMeal($event)").meal-select
                     li.span2
                       .thumbnail.well
-                        //img(data-src="holder.js/300x200")
                         .caption
                           h3.meal-name= meal.name
                           p $

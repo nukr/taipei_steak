@@ -36,7 +36,7 @@ block content
                 .controls
                   select(name="category")
                     option(value="normal") 一般套餐
-                    option(value="event") 活動商品
+                    option(value="newYear") 新春菜單
                     option(value="christmas") 聖誕節專區
                     option(value="sevenFive") 七五折專區
                     option(value="single") 單點商品
@@ -47,7 +47,7 @@ block content
                   textarea(rows='3', name='remark')
               .form-actions
                 button.btn.btn-primary 送出
-                | 
+                |&nbsp;&nbsp;
                 button.btn 取消
 
         .tab-pane#meal-list
@@ -55,6 +55,7 @@ block content
             tr
               th 順序
               th 套餐名稱
+              th 分類
               th 價格
               th 備註
               th 操作
@@ -62,16 +63,14 @@ block content
               tr
                 td= meal.order
                 td= meal.name
+                td= meal.category
                 td= meal.price
                 td= meal.remark
                 td
-                  a(href="/meal/order/up/#{meal.order}")
-                    i.icomoon-icon-arrow-up-8
-                  a(href="/meal/order/down/#{meal.order}")
-                    i.icomoon-icon-arrow-down-8
-                  a(href="/meal/order/delete/#{meal._id}")
-                    i.icomoon-icon-remove-6
+                  a(href="/meal/delete/#{meal._id}")
+                    i.fa.fa-trash-o.fa-lg
+                  |&nbsp;&nbsp;
                   a(href="/meal/order/edit/#{meal.order}")
-                    i.icomoon-icon-pencil-5
+                    i.fa.fa-edit.fa-lg
       .hero-unit
         h2 抱歉！這是系統管理員功能

@@ -1,0 +1,20 @@
+{
+  "name": "taipei_steak",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nukr/taipei_steak",
+  "authors": [
+    "Nukr <nukrs.w@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.0.3"
+  }
+}
