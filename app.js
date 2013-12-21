@@ -9,7 +9,6 @@ var express = require('express')
   , bills = require('./controllers/bills')
   , auth = require('./controllers/auth')
   , employee = require('./controllers/employee')
-  , admin = require('./controllers/admin')
   , http = require('http')
   , https = require('https')
   , path = require('path')
@@ -45,20 +44,19 @@ app.get('/meal/delete/:id', meal.delete);
 app.get('/sortmeal', meal.sort);
 
 
+// Bills
 app.get('/bill/delete/:id', bill.delete);
 app.post('/bill/add', bill.add);
 app.get('/checkout', bills.checkout);
 app.get(/^\/report(?:(?:\/(\w+))(?:\/(\w+))(?:\/(\w+)))?$/, bills.report);
 app.get(/^\/archive\/(\w+)/, bill.archive);
+
+
+// Auths
 app.get(/^\/auth\/(\w+)?/, auth.index);
 app.post('/auth', auth.login);
 app.get('/logout', auth.logout);
-app.get('/admin', admin.index);
-app.get('/admin/dashboard', admin.index);
-app.get('/admin/employee', admin.employee);
-app.get('/admin/meal', admin.meal)
-app.get('/admin/charts', admin.charts)
-app.get('/admin/report/:date', admin.report)
+
 app.get('/report_spa', bills.reportSpa)
 app.get('/api/report/:year/:month/:day/:shift', bills.reportApi)
 app.get('/test', bills.test)
