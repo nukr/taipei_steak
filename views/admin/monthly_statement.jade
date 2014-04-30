@@ -1,0 +1,44 @@
+extends layouts/default
+block content
+    .container(ng-controller="MonthlyStatementCtrl")
+        .row
+            form.form-search.print-ignore
+                input#monthly_datepicker(type="text")
+                button.btn.btn-primary(ng-click="query()") 月報表產生
+            ul.nav.nav-tabs.print-ignore
+                li
+                    a(href="#monthly_revenue", data-toggle="tab") 月營業額
+                li
+                    a(href="#monthly_steaks", data-toggle="tab") 月客數統計
+            .tab-content
+                .tab-pane#monthly_revenue
+                    table.table.table-bordered.table-striped.lead.table-report
+                        tr
+                            th 日期
+                            th 金額
+                            th 服務費
+                            th 折扣
+                            th 總金額
+                        tr(ng-repeat="c in monthlyReports")
+                            td {{c.date}}
+                            td {{c.info.allRawPrice}}
+                            td {{c.info.allServiceTip}}
+                            td {{c.info.allDiscountTip}}
+                            td {{c.info.allDonePrice}}
+                .tab-pane#monthly_steaks
+                    table.table.lead.table-bordered.well
+                        tr
+                            th 品名
+                            th 單價
+                            th 數量
+                            th 金額
+                        tr(ng-repeat="dish in monthlyDishCount")
+                            td {{dish._id}}
+                            td {{dish.value.price}}
+                            td {{dish.value.qty}}
+                            td {{dish.value.total}}
+                        tr.info
+                            td 合計
+                            td
+                            td
+                            td {{reports.c.info.allRawPrice}}

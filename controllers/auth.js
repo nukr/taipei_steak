@@ -15,7 +15,6 @@
 
   exports.login = function(req, res) {
     var password;
-
     password = req.body.password.trim();
     return Employee.findOne({
       username: req.body.username

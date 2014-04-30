@@ -58,6 +58,9 @@ app.post('/auth', auth.login);
 app.get('/logout', auth.logout);
 
 app.get('/report_spa', bills.reportSpa)
+app.get('/admin/monthly_statement', bills.monthly_statement)
+app.get('/api/monthly_report/:year/:month/:day', bills.monthlyReportApi)
+app.get('/api/monthly_dishcount/:year/:month/:day', bills.monthlyDishCount)
 app.get('/api/report/:year/:month/:day/:shift', bills.reportApi)
 app.get('/test', bills.test)
 app.get('/m2e/:id', bills.m2e)

@@ -1,0 +1,15 @@
+doctype html
+html(ng-app="Report")
+
+    include ../includes/head
+
+    body
+        .navbar.navbar-inverse.navbar-fixed-top
+            .navbar-inner
+                .container
+                    a.brand(href='/report_spa') 台北牛排管理系統
+                    ul.nav
+                        li: a(href='/admin/monthly_statement') 月報表
+        block content
+
+    include ../includes/foot
