@@ -48,6 +48,12 @@ app.controller 'MonthlyStatementCtrl', ($scope, $http, $filter) ->
     firstDayOfMonth = moment().startOf('month').format('DD')
     lastDayOfMonth = moment().endOf('month').format('DD')
     $scope.monthlyReports = []
+    $scope.total = {
+        allRawPrice: 0
+        allServiceTip: 0
+        allDiscountTip: 0
+        allDonePrice: 0
+    }
     $scope.queryDate = $filter('date')($scope.queryDate, 'yyyy/MM/dd')
     $('a[href="#monthly_revenue"]').tab('show')
 
@@ -61,6 +67,10 @@ app.controller 'MonthlyStatementCtrl', ($scope, $http, $filter) ->
         .success (data, status, headers, config) ->
             $scope.monthlyReports[day] = data
             $scope.monthlyReports[day].date = "#{year}-#{month}-#{day}"
+            $scope.total.allRawPrice += data.info.allRawPrice
+            $scope.total.allServiceTip += data.info.allServiceTip
+            $scope.total.allDiscountTip += data.info.allDiscountTip
+            $scope.total.allDonePrice += data.info.allDonePrice
 
     day = 1
     ( ->
@@ -69,7 +79,6 @@ app.controller 'MonthlyStatementCtrl', ($scope, $http, $filter) ->
             url: "/api/monthly_dishcount/#{year}/#{month}/#{day}"
         .success (data, status, headers, config) ->
             $scope.monthlyDishCount = data
-            console.log data
     )()
 
     while day <= lastDayOfMonth
@@ -83,6 +92,12 @@ app.controller 'MonthlyStatementCtrl', ($scope, $http, $filter) ->
         year = date.format('YYYY')
         month = date.format('MM')
         day = 1
+        $scope.total = {
+            allRawPrice: 0
+            allServiceTip: 0
+            allDiscountTip: 0
+            allDonePrice: 0
+        }
         ( ->
             $scope.monthlyDishCount = []
             $http
@@ -90,7 +105,6 @@ app.controller 'MonthlyStatementCtrl', ($scope, $http, $filter) ->
                 url: "/api/monthly_dishcount/#{year}/#{month}/#{day}"
             .success (data, status, headers, config) ->
                 $scope.monthlyDishCount = data
-                console.log data
         )()
         firstDayOfMonth = date.startOf('month').format('DD')
         lastDayOfMonth = date.endOf('month').format('DD')
@@ -102,5 +116,9 @@ app.controller 'MonthlyStatementCtrl', ($scope, $http, $filter) ->
                 .success (data, status, headers, config) ->
                     $scope.monthlyReports[day] = data
                     $scope.monthlyReports[day].date = "#{year}-#{month}-#{day}"
+                    $scope.total.allRawPrice += data.info.allRawPrice
+                    $scope.total.allServiceTip += data.info.allServiceTip
+                    $scope.total.allDiscountTip += data.info.allDiscountTip
+                    $scope.total.allDonePrice += data.info.allDonePrice
             )(day)
             day += 1

@@ -56,6 +56,12 @@
     firstDayOfMonth = moment().startOf('month').format('DD');
     lastDayOfMonth = moment().endOf('month').format('DD');
     $scope.monthlyReports = [];
+    $scope.total = {
+      allRawPrice: 0,
+      allServiceTip: 0,
+      allDiscountTip: 0,
+      allDonePrice: 0
+    };
     $scope.queryDate = $filter('date')($scope.queryDate, 'yyyy/MM/dd');
     $('a[href="#monthly_revenue"]').tab('show');
     $('#monthly_datepicker').datepicker({
@@ -67,7 +73,11 @@
         url: "/api/monthly_report/" + year + "/" + month + "/" + day
       }).success(function(data, status, headers, config) {
         $scope.monthlyReports[day] = data;
-        return $scope.monthlyReports[day].date = "" + year + "-" + month + "-" + day;
+        $scope.monthlyReports[day].date = "" + year + "-" + month + "-" + day;
+        $scope.total.allRawPrice += data.info.allRawPrice;
+        $scope.total.allServiceTip += data.info.allServiceTip;
+        $scope.total.allDiscountTip += data.info.allDiscountTip;
+        return $scope.total.allDonePrice += data.info.allDonePrice;
       });
     };
     day = 1;
@@ -76,8 +86,7 @@
         method: 'GET',
         url: "/api/monthly_dishcount/" + year + "/" + month + "/" + day
       }).success(function(data, status, headers, config) {
-        $scope.monthlyDishCount = data;
-        return console.log(data);
+        return $scope.monthlyDishCount = data;
       });
     })();
     while (day <= lastDayOfMonth) {
@@ -92,14 +101,19 @@
       year = date.format('YYYY');
       month = date.format('MM');
       day = 1;
+      $scope.total = {
+        allRawPrice: 0,
+        allServiceTip: 0,
+        allDiscountTip: 0,
+        allDonePrice: 0
+      };
       (function() {
         $scope.monthlyDishCount = [];
         return $http({
           method: 'GET',
           url: "/api/monthly_dishcount/" + year + "/" + month + "/" + day
         }).success(function(data, status, headers, config) {
-          $scope.monthlyDishCount = data;
-          return console.log(data);
+          return $scope.monthlyDishCount = data;
         });
       })();
       firstDayOfMonth = date.startOf('month').format('DD');
@@ -112,7 +126,11 @@
             url: "/api/monthly_report/" + year + "/" + month + "/" + day
           }).success(function(data, status, headers, config) {
             $scope.monthlyReports[day] = data;
-            return $scope.monthlyReports[day].date = "" + year + "-" + month + "-" + day;
+            $scope.monthlyReports[day].date = "" + year + "-" + month + "-" + day;
+            $scope.total.allRawPrice += data.info.allRawPrice;
+            $scope.total.allServiceTip += data.info.allServiceTip;
+            $scope.total.allDiscountTip += data.info.allDiscountTip;
+            return $scope.total.allDonePrice += data.info.allDonePrice;
           });
         })(day);
         _results.push(day += 1);
